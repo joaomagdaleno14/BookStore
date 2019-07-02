@@ -23,28 +23,33 @@ class ClienteBl {
                     . "O Sobrenome do Cliente esta em branco");
         }
 
-        if ($Cliente->getDtNasc() == null || 
-                $Cliente->getDtNasc() == "") {
+        if ($Cliente->getCPF() == null || 
+                $Cliente->getCPF() == "") {
             throw new InvalidArgumentException(""
                     . "A data de nascimento do Cliente esta em branco");
         }
 
-        if ($Cliente->getEndereco() == null || 
-                $Cliente->getEndereco() == "") {
+        if ($Cliente->getDt_Nascimento() == null || 
+                $Cliente->getDt_Nascimento() == "") {
             throw new InvalidArgumentException(""
                     . "O endereço do Cliente esta em branco");
+        }
+
+        if ($Cliente->getTelefone() == null || 
+                $Cliente->getTelefone() == "") {
+            throw new InvalidArgumentException(""
+                    . "O e-mail do Cliente esta em branco");
         }
 
         if ($Cliente->getEmail() == null || 
                 $Cliente->getEmail() == "") {
             throw new InvalidArgumentException(""
-                    . "O e-mail do Cliente esta em branco");
+                    . "O número de Email do Cliente esta em branco");
         }
-
-        if ($Cliente->getCelular() == null || 
-                $Cliente->getCelular() == "") {
+        if ($Cliente->getSenha() == null || 
+                $Cliente->getSenha() == "") {
             throw new InvalidArgumentException(""
-                    . "O número de celular do Cliente esta em branco");
+                    . "O número de Senha do Cliente esta em branco");
         }
 
         return $this->ClienteDao->inserir($Cliente);
