@@ -15,7 +15,7 @@ if(isset($_GET['id'])){
     $Senha=$BFetch['Senha'];
 }
 ?>
-<form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerCadastro.php';?>" method="post">
+<form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerEditar.php';?>" method="post">
     <div class="cadastro">
 
     <h1>Cadastrar Cliente</h1>

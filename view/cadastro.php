@@ -18,7 +18,7 @@
     <input class="h40 floatR w100" type="password" name="Senha" id="Senha" placeholder="Senha" required><br>
     <input class="h40 floatR w100" type="password" name="SenhaConf" id="SenhaConf" placeholder="Confirmação da Senha" required><br>
     <input class="h40 floatR center" type="submit" value="Cadastrar">
-    <div class="loginTextos floatR ">Já tem conta? <a href="<?php echo './login.php';?>">Faça o login</a></div>
+    <div class="loginTextos floatR ">Já tem conta? <a href="<?php echo 'login.php';?>">Faça o login</a></div>
     </div>
     </div>
 </form>
