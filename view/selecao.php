@@ -32,9 +32,9 @@
             <td><?php echo $BFetch['Senha'];?></td>
 
             <td>
-                <a href="<?php echo "Visualizar.php?id=".$BFetch['ID'].";" ?>"><img src="Images/search.png" alt="Visualizar"></a>
-                <a href="<?php echo "Cadastro.php?id=".$BFetch['ID'].";"?>"><img src="Images/edit.png" alt="Editar"></a>
-                <a class="Deletar" href="<?php echo "Controllers/ControllerDelete.php?id={$BFetch['ID']}"; ?>"><img src="Images/delete.png" alt="Deletar"></a>
+                <a href="<?php echo "Visualizar.php?id=".$BFetch['ID'].";" ?>"><img src="../public/img/search.png" alt="Visualizar"></a>
+                <a href="<?php echo "editar.php?id=".$BFetch['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>
+                <a class="Deletar" href="<?php echo "Controllers/ControllerDelete.php?id={$BFetch['ID']}"; ?>"><img src="../public/img/delete.png" alt="Deletar"></a>
             </td>
 
 
