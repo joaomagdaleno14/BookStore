@@ -1,6 +1,6 @@
 <?php 
     include("../dao/ClienteDao.php");
-    inclide("./Header.php")
+    include("Header.php");
 ?>
 
 <div class="Content">
@@ -47,5 +47,5 @@
 </div>
 
 <?php 
-    inclide("./Footer.php")
+    include("Footer.php")
 ?>

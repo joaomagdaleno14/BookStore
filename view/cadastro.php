@@ -1,4 +1,5 @@
 <?php include("Header.php");?>
+<div class="fundo" id="main"></div>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerCadastro.php';?>" method="post">
     <div class="cadastro">
 

@@ -12,6 +12,6 @@
 <body>
     
     <div class="sidenav">
-        <a href="view/cadastro.php">Cadastro</a>
-        <a href="view/selecao.php">Listar</a>
+        <a href="cadastro.php">Cadastro</a>
+        <a href="selecao.php">Listar</a>
     </div>

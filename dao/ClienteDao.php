@@ -7,7 +7,7 @@ class ClienteDao extends Cliente{
 
     public function inserir( Cliente $Cliente) {
         try {
-            $connection = new PDO('mysql:host=127.0.0.1;dbname=sistemadentista;charset=utf8', 'root', '');
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
             $sql = "INSERT INTO cliente (Nome, Sobrenome, CPF, Dt_Nascimento, Telefone, Email, Senha) VALUES (:Nome, :Sobrenome, :CPF, :Dt_Nascimento, :Telefone, :Email, :Senha)";
             $preparedStatment = $connection->prepare($sql);
@@ -36,7 +36,7 @@ class ClienteDao extends Cliente{
     
     public function listar() {
         try {
-            $connection = new PDO('mysql:host=127.0.0.1;dbname=sistemadentista;charset=utf8', 'root', '');
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
             $sql = "SELECT * FROM cliente";
             $preparedStatment = $connection->prepare($sql);

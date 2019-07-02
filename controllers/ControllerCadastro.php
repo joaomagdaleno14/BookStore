@@ -1,16 +1,18 @@
 <?php 
-    include_once '../model/Paciente.php';
-    include_once '../bl/PacientesBl.php';
+    include_once '../model/Cliente.php';
+    include_once '../bl/ClientesBl.php';
     include_once '../common/respostas.php';
     if (isset($_POST)){
-        $paciente = new Paciente();
-        $paciente->setNome($_POST['Nome']);        
-        $paciente->setDtNasc($_POST['DtNasc']);        
-        $paciente->setEndereco($_POST['Endereco']);        
-        $paciente->setEmail($_POST['Email']);        
-        $paciente->setCelular($_POST['Celular']);        
-        $pBl = new PacienteBl();
-        $resultado = $pBl->registrarPaciente($paciente);
+        $Cliente = new Cliente();
+        $Cliente->setNome($_POST['Nome']);        
+        $Cliente->setSobrenome($_POST['Sobrenome']);        
+        $Cliente->setCPF($_POST['CPF']);        
+        $Cliente->setDt_Nascimento($_POST['Dt_Nascimento']);        
+        $Cliente->setTelefone($_POST['Telefone']);        
+        $Cliente->setEmail($_POST['Email']);        
+        $Cliente->setSenha($_POST['Senha']);        
+        $cBl = new ClienteBl();
+        $resultado = $cBl->registrarCliente($Cliente);
         
         if ($resultado == SUCESSO){
             echo "ok inserido com sucesso";
