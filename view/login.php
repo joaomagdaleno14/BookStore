@@ -1,4 +1,4 @@
-<div class="fundo" id="main"></div>
+
 <form name="FormLogin" id="FormLogin" action="<?php echo '..//validarLogin' ?>" method="post">
     <div class="login">
 

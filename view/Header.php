@@ -12,6 +12,8 @@
 <body>
     
     <div class="sidenav">
-        <a href="cadastro.php">Cadastro</a>
-        <a href="selecao.php">Listar</a>
+        <a href="cadastro.php">Cadastro Clientes</a>
+        <a href="cadastroeditora.php">Cadastro Editora</a>
+        <a href="cadastrotema.php">Cadastro Tema</a>
+        <a href="selecao.php">Listar Clientes</a>
     </div>
