@@ -11,7 +11,7 @@ class ClienteBl {
         $this->ClienteDao = new ClienteDao();
     }
 
-    public function update(Cliente $Cliente){        
+    public function alterarCliente(Cliente $Cliente){        
         if ($Cliente->getNome() == null || 
                 $Cliente->getNome() == "") {
             throw new InvalidArgumentException(""

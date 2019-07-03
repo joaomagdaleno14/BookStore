@@ -12,7 +12,7 @@
         $Cliente->setEmail($_POST['Email']);        
         $Cliente->setSenha($_POST['Senha']);        
         $cBl = new ClienteBl();
-        $resultado = $cBl->registrarCliente($Cliente);
+        $resultado = $cBl->alterarCliente($Cliente);
         
         if ($resultado == SUCESSO){
             echo "ok inserido com sucesso";
