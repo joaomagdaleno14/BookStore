@@ -60,7 +60,7 @@ class ClienteBl {
 
     #Verifica se a senha é a mesma da confirmação de senha
     public function validateConfSenha(Cliente $Validate){
-        if($Cliente->getSenha() == $Cliente->SenhaConf()){
+        if($Validate->getSenha() == $Validate->SenhaConf()){
                 return true;
         }else{
                 throw new InvalidArgumentException(""
@@ -74,8 +74,8 @@ class ClienteBl {
     }
 
     #Verificar se o captcha esta correto
-    public function validateCaptcha(Cliente $Captcha, $Score=0.1){
-        $return=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret='6Le6J60UAAAAAJyzsR8D7gCyqjQBiO6CW07HKF3B'&response={$Captcha}");
+    public function validateCaptcha(Cliente $ReCaptcha, $Score=0.1){
+        $return=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret='6Le6J60UAAAAAJyzsR8D7gCyqjQBiO6CW07HKF3B'&response={$ReCaptcha->getReCaptcha()}");
         return $return;
     }
 

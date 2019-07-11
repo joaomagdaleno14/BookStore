@@ -15,8 +15,8 @@
             $gRecaptchaResponse=$_POST['g-recaptcha-response'];
             $cBl6= new ClienteBl();
             $Captcha = new Cliente();
-            $Captcha->setRecaptcha($gRecaptchaResponse);
-            $resultado5 = $cBl6->validateCaptcha($Cliente);
+            $Captcha->setReCaptcha($gRecaptchaResponse);
+            $resultado5 = $cBl6->validateCaptcha($Captcha);
             var_dump(validateCaptcha($Captcha));
         }
 
