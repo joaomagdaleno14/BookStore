@@ -12,3 +12,4 @@ include_once '../dao/PacienteDao.php';
                 echo "eliminado!";
             }
         }
+    }

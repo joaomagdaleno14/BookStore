@@ -10,6 +10,10 @@ class Cliente {
     private $Telefone;
     private $Email;
     private $Senha;
+    private $SenhaConf;
+    private $SenhaHash;
+    private $Token;
+    private $Recaptcha; 
 
 
     public function getId() {
@@ -35,6 +39,18 @@ class Cliente {
     }
     public function getSenha() {
         return $this->Senha;
+    }
+    public function getSenhaConf() {
+        return $this->SenhaConf;
+    }
+    public function getSenhaHash() {
+        return $this->SenhaHash;
+    }
+    public function getToken() {
+        return $this->Token;
+    }
+    public function getRecaptcha() {
+        return $this->Recaptcha;
     }
 
 
@@ -62,6 +78,18 @@ class Cliente {
     }
     public function setSenha($Senha) {
         $this->Senha = $Senha;
+    }
+    public function setSenhaConf($SenhaConf) {
+        $this->SenhaConf = $SenhaConf;
+    }
+    public function setSenhaHash($SenhaHash) {
+        $this->SenhaHash = $SenhaHash;
+    }
+    public function setToken($Token) {
+        $this->Token = $Token;
+    }
+    public function setRecaptcha($Recaptcha) {
+        $this->Recaptcha = $Recaptcha;
     }
 
 

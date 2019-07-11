@@ -86,7 +86,13 @@ $(document).ready(function(){
     
     });
 
-    
-
 });
 
+(function getCaptcha(){
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6Le6J60UAAAAABJbF9W8ZEyPvBYutA6kFR6KrZmh', {action: 'homepage'}).then(function(token) {
+           const gRecaptchaResponse=document.querySelector("#g-recaptcha-response").value=token;
+        });
+    });
+}
+());

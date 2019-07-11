@@ -10,7 +10,7 @@
         $Cliente->setDt_Nascimento($_POST['Dt_Nascimento']);        
         $Cliente->setTelefone($_POST['Telefone']);        
         $Cliente->setEmail($_POST['Email']);        
-        $Cliente->setSenha($_POST['Senha']);        
+        $Cliente->setSenhaHash($_POST['Senha']);        
         $cBl = new ClienteEditarBl();
         $resultado = $cBl->update($Cliente);
         

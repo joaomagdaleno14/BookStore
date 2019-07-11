@@ -9,7 +9,7 @@ class ClienteDao extends Cliente{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "INSERT INTO cliente (Nome, Sobrenome, CPF, Dt_Nascimento, Telefone, Email, Senha) VALUES (:Nome, :Sobrenome, :CPF, :Dt_Nascimento, :Telefone, :Email, :Senha)";
+            $sql = "INSERT INTO cliente (Nome, Sobrenome, CPF, Dt_Nascimento, Telefone, Email, Senha, Status) VALUES (:Nome, :Sobrenome, :CPF, :Dt_Nascimento, :Telefone, :Email, :Senha, confirmation)";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":Nome",$Cliente->getNome());
             $preparedStatment->bindValue(":Sobrenome",$Cliente->getSobrenome());
@@ -17,7 +17,7 @@ class ClienteDao extends Cliente{
             $preparedStatment->bindValue(":Dt_Nascimento",$Cliente->getDt_Nascimento());
             $preparedStatment->bindValue(":Telefone",$Cliente->getTelefone());
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
-            $preparedStatment->bindValue(":Senha",$Cliente->getSenha());
+            $preparedStatment->bindValue(":Senha",$Cliente->getSenhaHash());
             $preparedStatment->execute();
             $connection->commit();
            return SUCESSO;
@@ -33,6 +33,32 @@ class ClienteDao extends Cliente{
             }
         }
     }
+
+    public function inserirToken( Cliente $Cliente) {
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql = "INSERT INTO confirmation (Email,Token) VALUES (:Email, :Token)";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":Email",$Cliente->getEmail());
+            $preparedStatment->bindValue(":Token",$Cliente->getToken());
+            $preparedStatment->execute();
+            $connection->commit();
+           return SUCESSO;
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return FALHA;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+    }
+
+
     
     public function listar() {
         try {
@@ -84,6 +110,31 @@ class ClienteDao extends Cliente{
         }
     }
 
+    public function validarIssetEmail(Cliente $Cliente){
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql = "SELECT * FROM cliente WHERE Email = :Email";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":Email",$Cliente->getEmail());
+            $preparedStatment->execute();
+            $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);
+            $connection->commit();
+
+            return $resultado;
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return FALHA;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+    }
+
     public function update(Cliente $Cliente) {
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
@@ -98,8 +149,8 @@ class ClienteDao extends Cliente{
             $preparedStatment->bindValue(":Dt_Nascimento",$Cliente->getDt_Nascimento());
             $preparedStatment->bindValue(":Telefone",$Cliente->getTelefone());
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
-            $preparedStatment->bindValue(":Senha",$Cliente->getSenha());
-            $preparedStatment->execute();
+            $preparedStatment->bindValue(":Senha",$Cliente->getSenhaHash());
+            $resultado=$preparedStatment->execute();
             $connection->commit();
 
             return $resultado;
