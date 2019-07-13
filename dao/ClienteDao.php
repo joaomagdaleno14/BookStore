@@ -9,7 +9,7 @@ class ClienteDao extends Cliente{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "INSERT INTO cliente (Nome, Sobrenome, CPF, Dt_Nascimento, Telefone, Email, Senha, Status) VALUES (:Nome, :Sobrenome, :CPF, :Dt_Nascimento, :Telefone, :Email, :Senha, confirmation)";
+            $sql = "INSERT INTO cliente (Nome, Sobrenome, CPF, Dt_Nascimento, Telefone, Email, Senha, Status) VALUES (:Nome, :Sobrenome, :CPF, :Dt_Nascimento, :Telefone, :Email, :Senha, :confirmation)";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":Nome",$Cliente->getNome());
             $preparedStatment->bindValue(":Sobrenome",$Cliente->getSobrenome());
@@ -17,16 +17,19 @@ class ClienteDao extends Cliente{
             $preparedStatment->bindValue(":Dt_Nascimento",$Cliente->getDt_Nascimento());
             $preparedStatment->bindValue(":Telefone",$Cliente->getTelefone());
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
-            $preparedStatment->bindValue(":Senha",$Cliente->getSenhaHash());
-            $preparedStatment->execute();
+            $preparedStatment->bindValue(":Senha",$Cliente->getSenhaHash());            
+            $preparedStatment->bindValue(":confirmation",'test');
+            $response = $preparedStatment->execute();
             $connection->commit();
-           return SUCESSO;
+            if($response){
+                return true;
+            }
         } catch (PDOException $exc) {
             if ((isset($connection)) && ($connection->inTransaction())) {
                 $connection->rollBack();
             }
             echo $exc->getMessage();
-            return FALHA;
+            return false;
         } finally {
             if (isset($connection)) {
                 unset($connection);
@@ -42,9 +45,11 @@ class ClienteDao extends Cliente{
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
             $preparedStatment->bindValue(":Token",$Cliente->getToken());
-            $preparedStatment->execute();
+            $response = $preparedStatment->execute();
             $connection->commit();
-           return SUCESSO;
+            if($response){
+                return true;
+            }
         } catch (PDOException $exc) {
             if ((isset($connection)) && ($connection->inTransaction())) {
                 $connection->rollBack();

@@ -48,8 +48,9 @@ class ClienteBl {
     public function validarSenha(Cliente $Validate){
         if ($Validate->getSenha() == null || 
         $Validate->getSenha() == "") {
-    throw new InvalidArgumentException(""
-            . "A Senha esta em branco");
+                return true;
+        }else{
+                return false;                
         }
     }
 
@@ -60,11 +61,10 @@ class ClienteBl {
 
     #Verifica se a senha é a mesma da confirmação de senha
     public function validateConfSenha(Cliente $Validate){
-        if($Validate->getSenha() == $Validate->SenhaConf()){
+        if($Validate->getSenha() == $Validate->getSenhaConf()){
                 return true;
         }else{
-                throw new InvalidArgumentException(""
-                    . "Senha é diferente de confirmação de senha");
+                return false;
         }
     }
 
@@ -73,11 +73,11 @@ class ClienteBl {
 
     }
 
-    #Verificar se o captcha esta correto
-    public function validateCaptcha(Cliente $ReCaptcha, $Score=0.1){
-        $return=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret='6Le6J60UAAAAAJyzsR8D7gCyqjQBiO6CW07HKF3B'&response=$ReCaptcha->getReCaptcha()");
-        return $return;
-    }
+//     #Verificar se o captcha esta correto
+//     public function validateCaptcha(Cliente $ReCaptcha, $Score=0.1){
+//         $return=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret='6Le6J60UAAAAAJyzsR8D7gCyqjQBiO6CW07HKF3B'&response=$ReCaptcha->getReCaptcha()");
+//         return $return;
+//     }
 
 
 

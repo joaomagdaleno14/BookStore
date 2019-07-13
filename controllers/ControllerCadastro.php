@@ -11,14 +11,14 @@
         $Cliente->setTelefone($_POST['Telefone']);        
         $Cliente->setEmail($_POST['Email']);
         
-        if(isset($_POST)){
-            $gRecaptchaResponse=$_POST['g-recaptcha-response'];
-            $cBl6= new ClienteBl();
-            $Captcha = new Cliente();
-            $Captcha->setReCaptcha($gRecaptchaResponse);
-            $resultado5 = $cBl6->validateCaptcha($Captcha);
-            var_dump(validateCaptcha($Captcha));
-        }
+        // if(isset($_POST)){
+        //     $gRecaptchaResponse=$_POST['g-recaptcha-response'];
+        //     $cBl6= new ClienteBl();
+        //     $Captcha = new Cliente();
+        //     $Captcha->setReCaptcha($gRecaptchaResponse);
+        //     $resultado5 = $cBl6->validateCaptcha($Captcha);
+        //     var_dump(validateCaptcha($Captcha));
+        // }
 
         #Envia senha para ser validada se não esta vazia
         if(isset($_POST)){
@@ -38,9 +38,10 @@
             #Envia senha para ser validada se é diferente da confirmação
             $SenhaConf= $_POST['SenhaConf'];
             $cBl5= new ClienteBl();
-            $Cliente->setSenhaConf($SenhaConf);
-            $resultado4 = $cBl5->validateConfSenha($Cliente);
+            $Validate->setSenhaConf($SenhaConf);
+            $resultado4 = $cBl5->validateConfSenha($Validate);
         }
+
         #Cria o token
         $Token=bin2hex(random_bytes(64));
         $Cliente->setToken($Token);
