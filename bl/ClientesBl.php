@@ -12,45 +12,58 @@ class ClienteBl {
     }
 
     #Faz a validação dos campos no cadastro
-    public function registrarCliente(Cliente $Cliente){        
+    public function validateFields(Cliente $Cliente){        
         if ($Cliente->getNome() == null || 
                 $Cliente->getNome() == "") {
-            throw new InvalidArgumentException(""
-                    . "O nome do Cliente esta em branco");
+                return true;
+        }else{
+                return false;                
         }
+        
         if ($Cliente->getSobrenome() == null || 
                 $Cliente->getSobrenome() == "") {
-            throw new InvalidArgumentException(""
-                    . "O Sobrenome do Cliente esta em branco");
+                        return true;
+        }else{
+                        return false;                
         }
 
         if ($Cliente->getCPF() == null || 
                 $Cliente->getCPF() == "") {
-            throw new InvalidArgumentException(""
-                    . "A data de nascimento do Cliente esta em branco");
+                return true;
+        }else{
+                return false;                
         }
 
         if ($Cliente->getDt_Nascimento() == null || 
                 $Cliente->getDt_Nascimento() == "") {
-            throw new InvalidArgumentException(""
-                    . "O endereço do Cliente esta em branco");
+                return true;
+        }else{
+                return false;                
         }
 
         if ($Cliente->getTelefone() == null || 
                 $Cliente->getTelefone() == "") {
-            throw new InvalidArgumentException(""
-                    . "O e-mail do Cliente esta em branco");
-        }
-
-        return $this->ClienteDao->inserir($Cliente);
-    }
-
-    public function validarSenha(Cliente $Validate){
-        if ($Validate->getSenha() == null || 
-        $Validate->getSenha() == "") {
                 return true;
         }else{
                 return false;                
+        }
+    }
+
+    public function validarSenha(Cliente $Cliente){
+        if ($Cliente->getSenha() == null || 
+        $Cliente->getSenha() == "") {
+                return true;
+        }else{
+                return false;                
+        }
+    }
+
+    public function validarEmail(Cliente $Cliente){
+        if ($Cliente->getEmail() == null || 
+                $Cliente->getEmail() == "" && filter_var($Cliente, FILTER_VALIDATE_EMAIL) ) {
+                return true;
+        }else{
+                return false;
         }
     }
 
@@ -60,8 +73,8 @@ class ClienteBl {
     }
 
     #Verifica se a senha é a mesma da confirmação de senha
-    public function validateConfSenha(Cliente $Validate){
-        if($Validate->getSenha() == $Validate->getSenhaConf()){
+    public function validateConfSenha(Cliente $Cliente){
+        if($Cliente->getSenha() == $Cliente->getSenhaConf()){
                 return true;
         }else{
                 return false;
@@ -83,36 +96,29 @@ class ClienteBl {
 
     #Faz o registro do Token
     public function registrarToken(Cliente $Cliente){
-
-        if ($Cliente->getEmail() == null || 
-                $Cliente->getEmail() == "") {
-            throw new InvalidArgumentException(""
-                    . "O número de Email do Cliente esta em branco");
-        }
-
+        
+        $Cliente->getEmail();
+        
         if ($Cliente->getToken() == null || 
                 $Cliente->getToken() == "") {
-            throw new InvalidArgumentException(""
-                    . "O número de Token do Cliente esta em branco");
+                return true;
+        }else{
+                return false;
         }
 
         return $this->ClienteDao->inserirToken($Cliente);
 
     }
 
-    #Faz a validação do email se existe no banco
-    public function validarEmail(Cliente $Cliente, $action=null){
-
-        if ($Cliente->getEmail() == null || 
-                $Cliente->getEmail() == "") {
-            throw new InvalidArgumentException(""
-                    . "O Email do Cliente esta em branco");
-        }
+    #Faz a validação do email se existe no banco (Null == Cadastro)
+    public function validateIssetEmail(Cliente $Cliente, $action=null){
         
+        $Cliente->getEmail();
+
         $resultado = $this->ClienteDao->validarIssetEmail($Cliente);
 
         if($action==null){
-                if($resultado > 0){
+                if($resultado == true){
                         throw new InvalidArgumentException(""
                         . "O Email Já existe!");
                         return false;
@@ -120,8 +126,8 @@ class ClienteBl {
                     return true;
                 }
                 
-        }else{
-                if($resultado > 0){
+        }else{ 
+                if($resultado == true){
                         return true;
                 }else{
                         throw new InvalidArgumentException(""
@@ -130,6 +136,10 @@ class ClienteBl {
                 }
 
         }
+    }
 
+
+    public function ValidateFinalCad(Cliente $Cliente){
+        $this->ClienteDao->inserir($Cliente);
     }
 }

@@ -45,9 +45,10 @@ class ClienteDao extends Cliente{
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
             $preparedStatment->bindValue(":Token",$Cliente->getToken());
-            $response = $preparedStatment->execute();
+            $resultado = $preparedStatment->execute();
             $connection->commit();
-            if($response){
+            
+            if($resultado){
                 return true;
             }
         } catch (PDOException $exc) {
@@ -55,7 +56,7 @@ class ClienteDao extends Cliente{
                 $connection->rollBack();
             }
             echo $exc->getMessage();
-            return FALHA;
+            return false;
         } finally {
             if (isset($connection)) {
                 unset($connection);
@@ -82,7 +83,7 @@ class ClienteDao extends Cliente{
                 $connection->rollBack();
             }
             echo $exc->getMessage();
-            return FALHA;
+            return false;
         } finally {
             if (isset($connection)) {
                 unset($connection);
@@ -126,13 +127,16 @@ class ClienteDao extends Cliente{
             $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);
             $connection->commit();
 
-            return $resultado;
+            if($resultado){
+                return true;
+
+            }
         } catch (PDOException $exc) {
             if ((isset($connection)) && ($connection->inTransaction())) {
                 $connection->rollBack();
             }
             echo $exc->getMessage();
-            return FALHA;
+            return false;
         } finally {
             if (isset($connection)) {
                 unset($connection);

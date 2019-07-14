@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    
+
     <div class="sidenav">
+        <a href="view/login.php">Login</a>
         <a href="view/cadastro.php">Cadastro Clientes</a>
         <a href="view/selecaoCliente.php">Listar Clientes</a>
         <a href="view/cadastroeditora.php">Cadastro Editora</a>
