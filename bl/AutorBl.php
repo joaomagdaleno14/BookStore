@@ -13,7 +13,7 @@ class AutorBl {
 
     public function registrarAutor(Autor $Autor){        
         if ($Autor->getNomeAutor() == null || 
-                $Autor->getNome() == "") {
+                $Autor->getNomeAutor() == "") {
             throw new InvalidArgumentException(""
                     . "O nome do Autor esta em branco");
         }

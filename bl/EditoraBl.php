@@ -13,7 +13,7 @@ class EditoraBl {
 
     public function registrarEditora(Editora $Editora){        
         if ($Editora->getNomeEditora() == null || 
-                $Editora->getNome() == "") {
+                $Editora->getNomeEditora() == "") {
             throw new InvalidArgumentException(""
                     . "O nome do Editora esta em branco");
         }

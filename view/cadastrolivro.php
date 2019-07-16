@@ -4,9 +4,9 @@ include_once '../dao/AutorDao.php';
 $Editora= new EditoraDao();
 $Autor= new AutorDao();
 $BFetch=$Editora->listarFetchAll();
-var_dump($BFetch);
+//var_dump($BFetch);
 $Fetch=$Autor->listarFetchAll();
-var_dump($Fetch);
+//var_dump($Fetch);
 ?>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerLivro.php';?>" enctype="multipart/form-data" method="post">
     <div class="cadastroW">
