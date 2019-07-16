@@ -16,5 +16,6 @@
         <a href="./cadastro.php">Cadastro Clientes</a>
         <a href="./selecaoCliente.php">Listar Clientes</a>
         <a href="./cadastroeditora.php">Cadastro Editora</a>
+        <a href="./listarEditora.php">Listar Editora</a>
         <a href="./cadastrotema.php">Cadastro Tema</a>
     </div>

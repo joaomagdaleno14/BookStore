@@ -12,6 +12,9 @@ class Editora {
     public function getNome() {
         return $this->Nome;
     }
+    public function getImg() {
+        return $this->Img;
+    }
 
 
     public function setId($id) {
@@ -19,6 +22,9 @@ class Editora {
     }
     public function setNome($Nome) {
         $this->Nome = $Nome;
+    }
+    public function setImg($Img) {
+        $this->Img = $Img;
     }
 
 

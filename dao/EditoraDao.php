@@ -9,9 +9,10 @@ class EditoraDao extends Editora{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "INSERT INTO editora (Nome, Img) VALUES (:Nome )";
+            $sql = "INSERT INTO editora (Nome, Img) VALUES (:Nome, :Img)";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":Nome",$Editora->getNome());
+            $preparedStatment->bindValue(":Img",$Editora->getImg());
             $preparedStatment->execute();
             $connection->commit();
            return SUCESSO;

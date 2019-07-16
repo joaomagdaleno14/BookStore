@@ -17,6 +17,11 @@ class EditoraBl {
             throw new InvalidArgumentException(""
                     . "O nome do Editora esta em branco");
         }
+        if ($Editora->getImg() == null || 
+                $Editora->getImg() == "") {
+            throw new InvalidArgumentException(""
+                    . "A Img da Editora esta em branco");
+        }
 
         return $this->EditoraDao->inserir($Editora);
     }
