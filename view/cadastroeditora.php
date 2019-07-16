@@ -1,5 +1,5 @@
 <?php include("Header.php");?>
-<form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerEditora.php';?>" method="post">
+<form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerEditora.php';?>" enctype="multipart/form-data" method="post">
     <div class="cadastro">
 
     <!-- <div class="Logo floatR ">
@@ -8,7 +8,7 @@
     <h1>Cadastrar Editora</h1>
     <div class="floatL">
     <input class="h40 floatL w100" type="text" name="Nome" id="Nome" placeholder="Nome" required><br>
-    <input type="file" name="imagem" required />
+    <input class="h40 floatL w100" type="file" name="imagem" required />
     <input class="h40 floatR center" type="submit" value="Cadastrar">
     </div>
     </div>

@@ -1,6 +1,6 @@
 <?php include("Header.php");?>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerCadastro.php';?>" method="post">
-    <div class="cadastro">
+    <div class="cadastroW">
 
     <!-- <div class="Logo floatR ">
             <img src="<?php echo '../public/img/Logo0-frayHord-B-G.png'; ?>" alt="Logo">

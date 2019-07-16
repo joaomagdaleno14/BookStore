@@ -65,7 +65,7 @@ h1{
     background-size: cover; 
 }
 
-.login,.cadastro{ 
+.login,.cadastro,.cadastroW{ 
     position: absolute; 
     top: 50%; 
     left: 50%; 
@@ -76,7 +76,7 @@ h1{
     border-radius: 5px; 
 }
 
-.cadastro{
+.cadastroW{
     width: 40%;
 }
 .login{
