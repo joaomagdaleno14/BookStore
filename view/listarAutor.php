@@ -8,6 +8,7 @@
     <h1>Seleção das Editoras<h1>
         <tr>
             <td>Nome</td>
+            <td>Descricao</td>
             <td>Img</td>
             <td>Ações</td>
         </tr>
@@ -20,6 +21,7 @@
         ?>
         <tr>
             <td><?php echo $row['Nome'];?></td>
+            <td><?php echo $row['Descricao'];?></td>
             <td><?php echo $row['Img'];?></td>
 
             <td>

@@ -8,8 +8,8 @@ class Livro {
     private $Preco;
     private $Descricao;
     private $ID_Editora;
-    private $Email;
-    private $Senha;
+    private $ID_Autor;
+    private $Img;
 
 
     public function getId() {
@@ -30,6 +30,13 @@ class Livro {
     public function getID_Editora() {
         return $this->ID_Editora;
     }
+    public function getID_Autor() {
+        return $this->ID_Autor;
+    }
+    public function getImg() {
+        return $this->Img;
+    }
+
     
 
 
@@ -51,6 +58,12 @@ class Livro {
     }
     public function setID_Editora($ID_Editora) {
         $this->ID_Editora = $ID_Editora;
+    }
+    public function setID_Autor($ID_Autor) {
+        $this->ID_Autor = $ID_Autor;
+    }
+    public function setImg($Img) {
+        $this->Img = $Img;
     }
 
 }

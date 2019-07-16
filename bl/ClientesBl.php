@@ -140,6 +140,11 @@ class ClienteBl {
 
 
     public function ValidateFinalCad(Cliente $Cliente){
-        $this->ClienteDao->inserir($Cliente);
+        return $this->ClienteDao->inserir($Cliente);
     }
+
+    public function alterarCliente(Cliente $Cliente){
+        return $this->ClienteDao->update($Cliente);
+    }
+
 }

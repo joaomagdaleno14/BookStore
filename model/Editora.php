@@ -4,6 +4,8 @@ class Editora {
 
     private $id;
     private $Nome;
+    private $Img;
+
 
 
     public function getId() {

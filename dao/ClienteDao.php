@@ -176,13 +176,13 @@ class ClienteDao extends Cliente{
         }
     }
 
-    public function delete($id) {
+    public function delete(Cliente $Cliente) {
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "DELETE FROM Paciente WHERE ID = :id";
+            $sql = "DELETE FROM Cliente WHERE ID = :ID";
             $preparedStatment = $connection->prepare($sql);
-            $preparedStatment->bindValue(":id",$id);
+            $preparedStatment->bindValue(":ID",$Cliente->getId());
             $resultado=$preparedStatment->execute();
             $connection->commit();
             
