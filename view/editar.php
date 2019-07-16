@@ -6,7 +6,7 @@ if(isset($_GET['id'])){
     $Cliente= new ClienteDao();
     $BFetch=$Cliente->listarunico($obj);
 
-    $Nome=$BFetch['Nome'];
+    $NomeCliente=$BFetch['NomeCliente'];
     $Sobrenome=$BFetch['Sobrenome'];
     $CPF=$BFetch['CPF'];
     $Dt_Nascimento=$BFetch['Dt_Nascimento'];
@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
 
     <h1>Cadastrar Cliente</h1>
     <div class="floatL">
-    <input class="h40 floatL w100" type="text" name="Nome" id="Nome" placeholder="Nome" value="<?php echo $Nome?>" required><br>
+    <input class="h40 floatL w100" type="text" name="NomeCliente" id="NomeCliente" placeholder="NomeCliente" value="<?php echo $NomeCliente?>" required><br>
     <input class="h40 floatL w100" type="text" name="Sobrenome" id="Sobrenome" placeholder="Sobrenome" value="<?php echo $Sobrenome?>" required><br>
     <input class="h40 floatL w100" type="text" name="CPF" id="CPF" placeholder="CPF" value="<?php echo $CPF?>" required><br>
     <input class="h40 floatL w100" type="date" name="Dt_Nascimento" id="Dt_Nascimento" value="<?php echo $Dt_Nascimento?>" required><br>

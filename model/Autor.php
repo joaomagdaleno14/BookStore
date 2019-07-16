@@ -3,7 +3,7 @@
 class Autor {
 
     private $id;
-    private $Nome;
+    private $NomeAutor;
     private $Descricao;
 
 
@@ -11,8 +11,8 @@ class Autor {
     public function getId() {
         return $this->id;
     }
-    public function getNome() {
-        return $this->Nome;
+    public function getNomeAutor() {
+        return $this->NomeAutor;
     }
     public function getDescricao() {
         return $this->Descricao;
@@ -27,8 +27,8 @@ class Autor {
     public function setId($id) {
         $this->id = $id;
     }
-    public function setNome($Nome) {
-        $this->Nome = $Nome;
+    public function setNomeAutor($NomeAutor) {
+        $this->NomeAutor = $NomeAutor;
     }
     public function setDescricao($Descricao) {
         $this->Descricao = $Descricao;

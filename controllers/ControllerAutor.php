@@ -1,20 +1,22 @@
 <?php 
-    include_once '../model/Editora.php';
-    include_once '../bl/EditoraBl.php';
+    include_once '../model/Autor.php';
+    include_once '../bl/AutorBl.php';
     include_once '../common/respostas.php';
     if (isset($_POST)){
-        $Editora = new Editora();
-        $Editora->setNomeEditora($_POST['NomeEditora']);
+        $Autor = new Autor();
+        $aBl = new AutorBl();
+        $Autor->setNomeAutor($_POST['NomeAutor']);
+        $Autor->setDescricao($_POST['Descricao']);
+        
 
         $tmpName = $_FILES['Img']['tmp_name'];
         $name = $_FILES['Img']['name'];
 
         move_uploaded_file($tmpName, "../public/img/".$name);
 
-        $Editora->setImg($name);
+        $Autor->setImg($name);
         
-        $eBl = new EditoraBl();
-        $resultado = $eBl->registrarEditora($Editora);
+        $resultado = $aBl->registrarAutor($Autor);
         
         if ($resultado == true){
             echo "ok inserido com sucesso";

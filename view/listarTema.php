@@ -14,11 +14,11 @@
         <!---- Estrutura de Loop ------>
 
         <?php $Tema= new TemaDao();
-            $BFetch=$Tema->listar();
+            $BFetch=$Tema->listarFetchAll();
             foreach($BFetch as $row){
         ?>
         <tr>
-            <td><?php echo $row['Nome'];?></td>
+            <td><?php echo $row['NomeTema'];?></td>
 
             <td>
                 <a href="<?php echo "editarTema.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>

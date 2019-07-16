@@ -12,10 +12,15 @@ class AutorBl {
     }
 
     public function registrarAutor(Autor $Autor){        
-        if ($Autor->getNome() == null || 
+        if ($Autor->getNomeAutor() == null || 
                 $Autor->getNome() == "") {
             throw new InvalidArgumentException(""
                     . "O nome do Autor esta em branco");
+        }
+        if ($Autor->getDescricao() == null || 
+                $Autor->getDescricao() == "") {
+            throw new InvalidArgumentException(""
+                    . "O DescrgetDescricao do Autor esta em branco");
         }
         if ($Autor->getImg() == null || 
                 $Autor->getImg() == "") {

@@ -15,11 +15,11 @@
         <!---- Estrutura de Loop ------>
 
         <?php $Editora= new EditoraDao();
-            $BFetch=$Editora->listar();
+            $BFetch=$Editora->listarFetchAll();
             foreach($BFetch as $row){
         ?>
         <tr>
-            <td><?php echo $row['Nome'];?></td>
+            <td><?php echo $row['NomeEditora'];?></td>
             <td><?php echo $row['Img'];?></td>
 
             <td>

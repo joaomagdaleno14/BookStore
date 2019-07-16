@@ -3,7 +3,7 @@
 class Livro {
 
     private $id;
-    private $Nome;
+    private $NomeLivro;
     private $Ano_Publi;
     private $Preco;
     private $Descricao;
@@ -15,8 +15,8 @@ class Livro {
     public function getId() {
         return $this->id;
     }
-    public function getNome() {
-        return $this->Nome;
+    public function getNomeLivro() {
+        return $this->NomeLivro;
     }
     public function getAno_Publi() {
         return $this->Ano_Publi;
@@ -44,8 +44,8 @@ class Livro {
     public function setId($id) {
         $this->id = $id;
     }
-    public function setNome($Nome) {
-        $this->Nome = $Nome;
+    public function setNomeLivro($NomeLivro) {
+        $this->NomeLivro = $NomeLivro;
     }
     public function setAno_Publi($Ano_Publi) {
         $this->Ano_Publi = $Ano_Publi;

@@ -4,7 +4,7 @@
     include_once '../common/respostas.php';
     if (isset($_POST)){
         $Livro = new Livro();
-        $Livro->setNome($_POST['Nome']);
+        $Livro->setNomeLivro($_POST['NomeLivro']);
         $Livro->setAno_Publi($_POST['Ano_Publi']);
         $Livro->setPreco($_POST['Preco']);
         $Livro->setDescricao($_POST['Descricao']);

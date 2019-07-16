@@ -3,22 +3,22 @@
 class Tema {
 
     private $id;
-    private $Nome;
+    private $NomeTema;
 
 
     public function getId() {
         return $this->id;
     }
-    public function getNome() {
-        return $this->Nome;
+    public function getNomeTema() {
+        return $this->NomeTema;
     }
 
 
     public function setId($id) {
         $this->id = $id;
     }
-    public function setNome($Nome) {
-        $this->Nome = $Nome;
+    public function setNomeTema($NomeTema) {
+        $this->NomeTema = $NomeTema;
     }
 
 

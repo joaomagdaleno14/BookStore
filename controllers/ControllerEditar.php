@@ -5,7 +5,7 @@
     if (isset($_POST)){
         $Cliente = new Cliente();
         $cBl = new ClienteEditarBl();
-        $Cliente->setNome($_POST['Nome']);        
+        $Cliente->setNomeCliente($_POST['NomeCliente']);        
         $Cliente->setSobrenome($_POST['Sobrenome']);        
         $Cliente->setCPF($_POST['CPF']);        
         $Cliente->setDt_Nascimento($_POST['Dt_Nascimento']);        

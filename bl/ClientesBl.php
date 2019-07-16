@@ -13,7 +13,7 @@ class ClienteBl {
 
     #Faz a validação dos campos no cadastro
     public function validateFields(Cliente $Cliente){        
-        if ($Cliente->getNome() == null || 
+        if ($Cliente->getNomeCliente() == null || 
                 $Cliente->getNome() == "") {
                 return true;
         }else{

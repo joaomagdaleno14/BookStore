@@ -7,7 +7,7 @@
     </div> -->
     <h1>Cadastrar Cliente</h1>
     <div class="floatL">
-    <input class="h40 floatL w100" type="text" name="Nome" id="Nome" placeholder="Nome" required><br>
+    <input class="h40 floatL w100" type="text" name="NomeCliente" id="NomeCliente" placeholder="NomeCliente" required><br>
     <input class="h40 floatL w100" type="text" name="Sobrenome" id="Sobrenome" placeholder="Sobrenome" required><br>
     <input class="h40 floatL w100" type="text" name="CPF" id="CPF" placeholder="CPF" required><br>
     <input class="h40 floatL w100" type="date" name="Dt_Nascimento" id="Dt_Nascimento" required><br>

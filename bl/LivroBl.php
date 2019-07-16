@@ -12,7 +12,7 @@ class LivroBl {
     }
 
     public function registrarLivro(Livro $Livro){        
-        if ($Livro->getNome() == null || 
+        if ($Livro->getNomeLivro() == null || 
                 $Livro->getNome() == "") {
             throw new InvalidArgumentException(""
                     . "O nome do Livro esta em branco");

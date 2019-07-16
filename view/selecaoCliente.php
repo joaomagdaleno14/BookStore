@@ -20,13 +20,11 @@
         <!---- Estrutura de Loop ------>
 
         <?php $Cliente= new ClienteDao();
-            $BFetch=$Cliente->listar();
-
-
+            $BFetch=$Cliente->listarFetchAll();
             foreach($BFetch as $row){
         ?>
         <tr>
-            <td><?php echo $row['Nome'];?></td>
+            <td><?php echo $row['NomeCliente'];?></td>
             <td><?php echo $row['Sobrenome'];?></td>
             <td><?php echo $row['CPF'];?></td>
             <td><?php echo $row['Dt_Nascimento'];?></td>

@@ -12,7 +12,7 @@ class TemaBl {
     }
 
     public function registrarTema(Tema $Tema){        
-        if ($Tema->getNome() == null || 
+        if ($Tema->getNomeTema() == null || 
                 $Tema->getNome() == "") {
             throw new InvalidArgumentException(""
                     . "O nome do Tema esta em branco");

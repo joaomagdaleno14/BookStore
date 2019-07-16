@@ -3,7 +3,7 @@
 class Cliente {
 
     private $id;
-    private $Nome;
+    private $NomeCliente;
     private $Sobrenome;
     private $CPF;
     private $Dt_Nascimento;
@@ -19,8 +19,8 @@ class Cliente {
     public function getId() {
         return $this->id;
     }
-    public function getNome() {
-        return $this->Nome;
+    public function getNomeCliente() {
+        return $this->NomeCliente;
     }
     public function getSobrenome() {
         return $this->Sobrenome;
@@ -58,8 +58,8 @@ class Cliente {
     public function setId($id) {
         $this->id = $id;
     }
-    public function setNome($Nome) {
-        $this->Nome = $Nome;
+    public function setNomeCliente($NomeCliente) {
+        $this->NomeCliente = $NomeCliente;
     }
     public function setSobrenome($Sobrenome) {
         $this->Sobrenome = $Sobrenome;
