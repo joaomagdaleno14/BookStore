@@ -178,7 +178,7 @@ class ClienteDao extends Cliente{
 
     public function delete($id) {
         try {
-            $connection = new PDO('mysql:host=127.0.0.1;dbname=sistemadentista;charset=utf8', 'root', '');
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
             $sql = "DELETE FROM Paciente WHERE ID = :id";
             $preparedStatment = $connection->prepare($sql);
