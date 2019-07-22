@@ -15,10 +15,8 @@
         $resultado = $cBl->validateFields($Cliente);
         if($resultado == true){
             echo "Cadastro verificado com sucesso <br>";
-            var_dump($resultado);
         }else{
             echo "Existe dados em branco <br>";
-            var_dump($resultado);
         }
         
 
@@ -26,7 +24,6 @@
         $Senha = $_POST['Senha'];
         $Cliente->setSenha($Senha);
         $resultado1 = $cBl->validarSenha($Cliente);
-        var_dump($resultado1);
 
         #valida conf senha
         $SenhaConf= $_POST['SenhaConf'];
@@ -34,10 +31,10 @@
         $resultado2 = $cBl->validateConfSenha($Cliente);
         if($resultado2 == true){
             echo "Senha conf validada com sucesso<br>";
-            var_dump($resultado2);
+
         }else{
             echo "Senha conf em branco";
-            var_dump($resultado2);
+
         }
 
         #Envia senha para ser encriptada
@@ -48,13 +45,13 @@
         $Email = $_POST['Email'];
         $Cliente->setEmail($Email);
         $resultado3 = $cBl->validarEmail($Cliente);
-        var_dump($resultado3);
+
 
         
 
         #Valida se existe email no banco
         $resultad4 = $cBl->ValidateIssetEmail($Cliente);
-        var_dump($resultad4);
+
 
         #Cria o token
         $Token=bin2hex(random_bytes(64));
@@ -62,10 +59,10 @@
 
         #Registra Token
         $resultado4 = $cBl->registrarToken($Cliente);
-        var_dump($resultado4);
+
 
         $resultado6 = $cBl->ValidateFinalCad($Cliente);
-        var_dump($resultado6);
+
         
 
         // if(isset($_POST)){

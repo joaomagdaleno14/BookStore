@@ -11,7 +11,7 @@
 
 <body>
     
-    <!-- <div class="sidenav">
+    <div class="sidenav">
         <a href="./login.php">Login</a>
         <a href="./cadastro.php">Cadastro Clientes</a>
         <a href="./selecaoCliente.php">Listar Clientes</a>
@@ -23,4 +23,4 @@
         <a href="./listarAutor.php">Listar Autor</a>
         <a href="./cadastrotema.php">Cadastro Tema</a>
         <a href="./listarTema.php">Listar Tema</a>
-    </div> -->
+    </div>
