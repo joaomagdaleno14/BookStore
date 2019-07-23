@@ -1,17 +1,29 @@
 <?php
 include_once '../model/Cliente.php';
     include_once '../bl/ClientesBl.php';
+    include_once '../dao/ClienteDao.php';
+
     include_once '../common/respostas.php';
         
 if(isset($_POST)){
     $Email = $_POST['Email'];
+    $cBl= new ClienteBl();
     $Validate = new Cliente();
-    $Validate->setEmail($Email);
-    $cBl3= new ClienteBl();
-    $resultado3 = $cBl3->validarEmail($Validate);
+    $Vali = new ClienteDao();
+    $Hash=$Vali->selectsenha();
+    foreach ($Hash as $key) {
+        $SenhaHash=$key['Senha'];
+    }
+    var_dump($Hash);
+    $Validate->setEmail($Email);;
+    $resultado3 = $cBl->validarEmail($Validate);
+    $Conf = $cBl->validateIssetEmail($Validate, "login");
 
-    $cBl7 = new ClienteBl();
-    $Conf = $cBl7->validateIssetEmail($Validate, "login");
+    if(password_verify($_POST["Senha"],$SenhaHash)){
+        echo "Welcome"; 
+    }else{
+        echo "Wrong Password";
+    }
 
     var_dump(validateIssetEmail($Validate, "login"));
     

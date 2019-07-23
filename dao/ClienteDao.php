@@ -115,6 +115,32 @@ class ClienteDao extends Cliente{
         }
     }
 
+    public function selectsenha(){
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql =  "SELECT Senha FROM cliente";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->execute();
+
+            $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);
+            $connection->commit();
+
+            return $resultado;
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return false;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+    }
+
+
     public function listarunico($obj) {
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');

@@ -12,8 +12,8 @@
         $Livro->setID_Autor($_POST['ID_Autor']);
 
 
-        $tmpName = $_FILES['Img']['tmp_name'];
-        $name = $_FILES['Img']['name'];
+        $tmpName = $_FILES['Livro_Img']['tmp_name'];
+        $name = $_FILES['Livro_Img']['name'];
 
         move_uploaded_file($tmpName, "../public/img/".$name);
 

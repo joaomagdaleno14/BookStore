@@ -9,7 +9,7 @@ class LivroDao extends Livro{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "INSERT INTO Livro (NomeLivro, Ano_Publi, Preco, Descricao, ID_Editora, ID_Autor, Img) VALUES (:NomeLivro, :Ano_Publi, :Preco, :Descricao, :ID_Editora, :ID_Autor, :Img)";
+            $sql = "INSERT INTO Livro (NomeLivro, Ano_Publi, Preco, Descricao, ID_Editora, ID_Autor, Livro_Img) VALUES (:NomeLivro, :Ano_Publi, :Preco, :Descricao, :ID_Editora, :ID_Autor, :Livro_Img)";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":NomeLivro",$Livro->getNomeLivro());
             $preparedStatment->bindValue(":Ano_Publi",$Livro->getAno_Publi());
@@ -17,7 +17,7 @@ class LivroDao extends Livro{
             $preparedStatment->bindValue(":Descricao",$Livro->getDescricao());
             $preparedStatment->bindValue(":ID_Editora",$Livro->getID_Editora());
             $preparedStatment->bindValue(":ID_Autor",$Livro->getID_Autor());
-            $preparedStatment->bindValue(":Img",$Livro->getImg());
+            $preparedStatment->bindValue(":Livro_Img",$Livro->getImg());
             $preparedStatment->execute();
             $connection->commit();
            return SUCESSO;
@@ -38,7 +38,7 @@ class LivroDao extends Livro{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "SELECT * FROM Livro";
+            $sql = "SELECT *, Editora.NomeEditora, autor.NomeAutor FROM Livro join editora on Livro.ID_Editora = editora.ID join autor on livro.ID_Autor = autor.ID";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->execute();
 
@@ -46,6 +46,7 @@ class LivroDao extends Livro{
             $connection->commit();
 
             return $resultado;
+            //var_dump($resultado);
         } catch (PDOException $exc) {
             if ((isset($connection)) && ($connection->inTransaction())) {
                 $connection->rollBack();

@@ -81,11 +81,6 @@ class ClienteBl {
         }
     }
 
-    #Verificação da senha com o Hash no banco de dados
-    public function validateSenha($Email, $Senha){
-
-    }
-
 //     #Verificar se o captcha esta correto
 //     public function validateCaptcha(Cliente $ReCaptcha, $Score=0.1){
 //         $return=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret='6Le6J60UAAAAAJyzsR8D7gCyqjQBiO6CW07HKF3B'&response=$ReCaptcha->getReCaptcha()");

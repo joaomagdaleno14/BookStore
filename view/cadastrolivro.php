@@ -16,11 +16,10 @@ $Fetch=$Autor->listarFetchAll();
     </div> -->
     <h1>Cadastrar Livros</h1>
     <div class="floatL">
-    <input class="h40 floatL w100" type="text" name="NomeLivro" id="NomeLivro" placeholder="NomeLivro" required><br>
-    <label>Ano de publicação</label>
-    <input class="h40 floatL w100" type="date" name="Ano_Publi" id="Ano_Publi" required><br>
-    <input class="h40 floatL w100" type="text" name="Preco" id="Preco" required><br>
-    <input class="h40 floatL w100" type="text" name="Descricao" id="Descricao" required><br>
+    <input class="h40 floatL w100" type="text" name="NomeLivro" id="NomeLivro" placeholder="Nome" required><br>
+    <input class="h40 floatL w100" type="text" name="Ano_Publi" id="Ano_Publi" placeholder="Ano de publicação" required><br>
+    <input class="h40 floatL w100" type="text" name="Preco" id="Preco" placeholder="Preço"required><br>
+    <input class="h40 floatL w100" type="text" name="Descricao" id="Descricao" placeholder="Descrição"required><br>
 
     <select name="ID_Editora" id="ID_Editora">
         <?php foreach($BFetch as $row){ ?>
@@ -32,7 +31,7 @@ $Fetch=$Autor->listarFetchAll();
             <option  value="<?php echo $row['ID']; ?>"><?php echo $row['NomeAutor']; ?></option>
         <?php }?>
     </select>
-    <input class="h40 floatL w100" type="file" name="Img" id="Img" required />
+    <input class="h40 floatL w100" type="file" name="Livro_Img" id="Livro_Img" required />
     <input class="h40 floatR center" type="submit" value="Cadastrar">
     </div>
     </div>

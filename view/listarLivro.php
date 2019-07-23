@@ -1,6 +1,6 @@
 <?php 
-    include("../dao/LivroDao.php");
-    include("Header.php");
+    include_once "../dao/LivroDao.php";
+    include_once "Header.php";
 ?>
 
 <div class="Content">
@@ -8,6 +8,11 @@
     <h1>Seleção dos Livros<h1>
         <tr>
             <td>Nome</td>
+            <td>Ano_Publi</td>
+            <td>Preco</td>
+            <td>Descricao</td>
+            <td>Editora</td>
+            <td>Autor</td>
             <td>Img</td>
             <td>Ações</td>
         </tr>
@@ -16,11 +21,17 @@
 
         <?php $Livro= new LivroDao();
             $BFetch=$Livro->listarFetchAll();
+            var_dump($BFetch);
             foreach($BFetch as $row){
         ?>
         <tr>
             <td><?php echo $row['NomeLivro'];?></td>
-            <td><?php echo $row['Img'];?></td>
+            <td><?php echo $row['Ano_Publi'];?></td>
+            <td><?php echo $row['Preco'];?></td>
+            <td><?php echo $row['Descricao'];?></td>
+            <td><?php echo $row['NomeEditora'];?></td>
+            <td><?php echo $row['NomeAutor'];?></td>
+            <td><?php echo $row['Livro_Img'];?></td>
 
             <td>
                 <a href="<?php echo "editarLivro.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>

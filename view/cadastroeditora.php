@@ -6,7 +6,7 @@
     </div> -->
     <h1>Cadastrar Editora</h1>
     <div class="floatL">
-    <input class="h40 floatL w100" type="text" name="NomeEditora" id="NomeEditora" placeholder="NomeEditora" required><br>
+    <input class="h40 floatL w100" type="text" name="NomeEditora" id="NomeEditora" placeholder="Nome" required><br>
     <input class="h40 floatL w100" type="file" name="Img" id="Img" required />
     <input class="h40 floatR center" type="submit" value="Cadastrar">
     </div>
