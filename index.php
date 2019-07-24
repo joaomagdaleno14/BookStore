@@ -11,13 +11,15 @@
 
 <body>
 
-    <div class="sidenav">
-        <a href="view/login.php">Login</a>
-        <a href="view/cadastro.php">Cadastro Clientes</a>
-        <a href="view/selecaoCliente.php">Listar Clientes</a>
-        <a href="view/cadastroeditora.php">Cadastro Editora</a>
-        <a href="view/cadastrotema.php">Cadastro Tema</a>
-    </div>
+    <header>
+        <nav> 
+            <a class="login" href="view/login.php">Login</a>
+            <a class="cliente" href="view/cadastro.php">Cadastro Clientes</a>
+            <a class="editora" href="view/cadastroeditora.php">Cadastro Editora</a>
+            <a class="tema" href="view/cadastrotema.php">Cadastro Tema</a>
+            <a class="livro" href="view/cadastrotema.php">Cadastro Tema</a>
+        </nav>
+    </header>
 
     <div class="Content">
     </div>
