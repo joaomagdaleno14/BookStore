@@ -4,19 +4,17 @@
     include_once '../common/respostas.php';
     if (isset($_POST)){
         $Autor = new Autor();
-        $aBl = new AutorBl();
-        $Autor->setNomeAutor($_POST['NomeAutor']);
-        $Autor->setDescricao($_POST['Descricao']);
-        
+        $cBl = new AutorBl();
+        $Autor->setNomeAutor($_POST['NomeAutor']);           
+        $Autor->setId($_POST['id']);
 
         $tmpName = $_FILES['Autor_Img']['tmp_name'];
         $name = $_FILES['Autor_Img']['name'];
-
         move_uploaded_file($tmpName, "../public/img/".$name);
 
         $Autor->setAutor_Img($name);
-        
-        $resultado = $aBl->registrarAutor($Autor);
+        var_dump($Autor);
+        $resultado = $cBl->alterarAutor($Autor);
         
         if ($resultado == true){
             echo "ok inserido com sucesso";

@@ -17,8 +17,8 @@ class Autor {
     public function getDescricao() {
         return $this->Descricao;
     }
-    public function getImg() {
-        return $this->Img;
+    public function getAutor_Img() {
+        return $this->Autor_Img;
     }
     
 
@@ -33,8 +33,8 @@ class Autor {
     public function setDescricao($Descricao) {
         $this->Descricao = $Descricao;
     }
-    public function setImg($Img) {
-        $this->Img = $Img;
+    public function setAutor_Img($Autor_Img) {
+        $this->Autor_Img = $Autor_Img;
     }
 
 }

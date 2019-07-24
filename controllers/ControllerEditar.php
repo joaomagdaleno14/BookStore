@@ -4,16 +4,13 @@
     include_once '../common/respostas.php';
     if (isset($_POST)){
         $Cliente = new Cliente();
-        $cBl = new ClienteEditarBl();
+        $cBl = new ClienteBl();
         $Cliente->setNomeCliente($_POST['NomeCliente']);        
-        $Cliente->setSobrenome($_POST['Sobrenome']);        
-        $Cliente->setCPF($_POST['CPF']);        
+        $Cliente->setSobrenome($_POST['Sobrenome']);          
         $Cliente->setDt_Nascimento($_POST['Dt_Nascimento']);        
         $Cliente->setTelefone($_POST['Telefone']);        
-        $Cliente->setEmail($_POST['Email']);        
-        $Cliente->setSenhaHash($_POST['Senha']);  
-              
-        $resultado = $cBl->update($Cliente);
+        $Cliente->setEmail($_POST['Email']);          
+        $resultado = $cBl->alterarCliente($Cliente);
         
         if ($resultado == SUCESSO){
             echo "ok inserido com sucesso";

@@ -22,7 +22,7 @@
         <tr>
             <td><?php echo $row['NomeAutor'];?></td>
             <td><?php echo $row['Descricao'];?></td>
-            <td><?php echo $row['Img'];?></td>
+            <td><img src="../public/img/<?php echo $row['Autor_Img'];?>"></td>
 
             <td>
                 <a href="<?php echo "editarAutor.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>

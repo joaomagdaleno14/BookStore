@@ -20,5 +20,9 @@ class TemaBl {
 
         return $this->TemaDao->inserir($Tema);
     }
+
+    public function alterarTema(Tema $Tema){
+        return $this->TemaDao->update($Tema);
+    }
     
 }

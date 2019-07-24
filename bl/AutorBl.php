@@ -22,12 +22,16 @@ class AutorBl {
             throw new InvalidArgumentException(""
                     . "O DescrgetDescricao do Autor esta em branco");
         }
-        if ($Autor->getImg() == null || 
-                $Autor->getImg() == "") {
+        if ($Autor->getAutor_Img() == null || 
+                $Autor->getAutor_Img() == "") {
             throw new InvalidArgumentException(""
-                    . "A Img da Autor esta em branco");
+                    . "A Autor_Img da Autor esta em branco");
         }
 
         return $this->AutorDao->inserir($Autor);
+    }
+
+    public function alterarAutor(Autor $Autor){
+        return $this->AutorDao->update($Autor);
     }
 }

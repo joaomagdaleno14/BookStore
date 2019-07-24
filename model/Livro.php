@@ -9,7 +9,7 @@ class Livro {
     private $Descricao;
     private $ID_Editora;
     private $ID_Autor;
-    private $Img;
+    private $Livro_Img;
 
 
     public function getId() {
@@ -33,8 +33,8 @@ class Livro {
     public function getID_Autor() {
         return $this->ID_Autor;
     }
-    public function getImg() {
-        return $this->Img;
+    public function getLivro_Img() {
+        return $this->Livro_Img;
     }
 
     
@@ -62,8 +62,8 @@ class Livro {
     public function setID_Autor($ID_Autor) {
         $this->ID_Autor = $ID_Autor;
     }
-    public function setImg($Img) {
-        $this->Img = $Img;
+    public function setLivro_Img($Livro_Img) {
+        $this->Livro_Img = $Livro_Img;
     }
 
 }

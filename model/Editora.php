@@ -4,7 +4,7 @@ class Editora {
 
     private $id;
     private $NomeEditora;
-    private $Img;
+    private $Editora_Img;
 
 
 
@@ -14,8 +14,8 @@ class Editora {
     public function getNomeEditora() {
         return $this->NomeEditora;
     }
-    public function getImg() {
-        return $this->Img;
+    public function getEditora_Img() {
+        return $this->Editora_Img;
     }
 
 
@@ -25,8 +25,8 @@ class Editora {
     public function setNomeEditora($NomeEditora) {
         $this->NomeEditora = $NomeEditora;
     }
-    public function setImg($Img) {
-        $this->Img = $Img;
+    public function setEditora_Img($Editora_Img) {
+        $this->Editora_Img = $Editora_Img;
     }
 
 

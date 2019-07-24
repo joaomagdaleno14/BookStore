@@ -145,8 +145,9 @@ class ClienteDao extends Cliente{
         try {
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
-            $sql = "SELECT * FROM cliente WHERE id=$obj";
+            $sql = "SELECT * FROM Cliente WHERE ID = :Id";
             $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":Id",$obj->getId());
             $preparedStatment->execute();
 
             $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);
@@ -199,16 +200,14 @@ class ClienteDao extends Cliente{
             $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
             $connection->beginTransaction();
             $sql = "UPDATE cliente SET
-            Nome = :Nome, Sobrenome = :Sobrenome, CFP = :CPF, Dt_Nascimento = :Dt_Nascimento, Telefone = :Telefone, Email = :Email, Senha = :Senha WHERE ID = :id";
+            NomeCliente = :NomeCliente, Sobrenome = :Sobrenome, Dt_Nascimento = :Dt_Nascimento, Telefone = :Telefone, Email = :Email WHERE ID = :id";
             $preparedStatment = $connection->prepare($sql);
             $preparedStatment->bindValue(":id",$Cliente->getid());
-            $preparedStatment->bindValue(":Nome",$Cliente->getNome());
+            $preparedStatment->bindValue(":NomeCliente",$Cliente->getNomeCliente());
             $preparedStatment->bindValue(":Sobrenome",$Cliente->getSobrenome());
-            $preparedStatment->bindValue(":CPF",$Cliente->getCPF());
             $preparedStatment->bindValue(":Dt_Nascimento",$Cliente->getDt_Nascimento());
             $preparedStatment->bindValue(":Telefone",$Cliente->getTelefone());
             $preparedStatment->bindValue(":Email",$Cliente->getEmail());
-            $preparedStatment->bindValue(":Senha",$Cliente->getSenhaHash());
             $resultado=$preparedStatment->execute();
             $connection->commit();
 

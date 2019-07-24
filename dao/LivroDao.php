@@ -17,7 +17,7 @@ class LivroDao extends Livro{
             $preparedStatment->bindValue(":Descricao",$Livro->getDescricao());
             $preparedStatment->bindValue(":ID_Editora",$Livro->getID_Editora());
             $preparedStatment->bindValue(":ID_Autor",$Livro->getID_Autor());
-            $preparedStatment->bindValue(":Livro_Img",$Livro->getImg());
+            $preparedStatment->bindValue(":Livro_Img",$Livro->getLivro_Img());
             $preparedStatment->execute();
             $connection->commit();
            return SUCESSO;
@@ -65,6 +65,32 @@ class LivroDao extends Livro{
             $connection->beginTransaction();
             $sql = "SELECT * FROM Livro";
             $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->execute();
+
+            $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);
+            $connection->commit();
+
+            return $resultado;
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return FALHA;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+    }
+
+    public function listarunico($obj) {
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql = "SELECT * FROM Livro WHERE ID = :Id";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":Id",$obj->getId());
             $preparedStatment->execute();
 
             $resultado=$preparedStatment->fetch(PDO::FETCH_ASSOC);

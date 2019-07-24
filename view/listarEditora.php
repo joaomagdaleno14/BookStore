@@ -20,7 +20,7 @@
         ?>
         <tr>
             <td><?php echo $row['NomeEditora'];?></td>
-            <td><?php echo $row['Img'];?></td>
+            <td><img src="../public/img/<?php echo $row['Editora_Img'];?>"></td>
 
             <td>
                 <a href="<?php echo "editarEditora.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>

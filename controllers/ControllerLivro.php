@@ -17,7 +17,7 @@
 
         move_uploaded_file($tmpName, "../public/img/".$name);
 
-        $Livro->setImg($name);
+        $Livro->setLivro_Img($name);
         
         $lBl = new LivroBl();
         $resultado = $lBl->registrarLivro($Livro);

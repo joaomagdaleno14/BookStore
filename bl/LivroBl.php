@@ -42,12 +42,16 @@ class LivroBl {
             throw new InvalidArgumentException(""
                     . "O ID_Autor do Livro esta em branco");
         }
-        if ($Livro->getImg() == null || 
-                $Livro->getImg() == "") {
+        if ($Livro->getLivro_Img() == null || 
+                $Livro->getLivro_Img() == "") {
             throw new InvalidArgumentException(""
-                    . "A Img da Livro esta em branco");
+                    . "A Livro_Img da Livro esta em branco");
         }
 
         return $this->LivroDao->inserir($Livro);
+    }
+
+    public function alterarLivro(Livro $Livro){
+        return $this->LivroDao->update($Livro);
     }
 }
