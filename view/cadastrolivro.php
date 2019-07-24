@@ -9,7 +9,7 @@ $Fetch=$Autor->listarFetchAll();
 //var_dump($Fetch);
 ?>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerLivro.php';?>" enctype="multipart/form-data" method="post">
-    <div class="cadastroW">
+    <div class="cadastroWw">
 
     <!-- <div class="Logo floatR ">
             <img src="<?php echo '../public/img/Logo0-frayHord-B-G.png'; ?>" alt="Logo">
