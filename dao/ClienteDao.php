@@ -202,7 +202,7 @@ class ClienteDao extends Cliente{
             $sql = "UPDATE cliente SET
             NomeCliente = :NomeCliente, Sobrenome = :Sobrenome, Dt_Nascimento = :Dt_Nascimento, Telefone = :Telefone, Email = :Email WHERE ID = :id";
             $preparedStatment = $connection->prepare($sql);
-            $preparedStatment->bindValue(":id",$Cliente->getid());
+            $preparedStatment->bindValue(":id",$Cliente->getId());
             $preparedStatment->bindValue(":NomeCliente",$Cliente->getNomeCliente());
             $preparedStatment->bindValue(":Sobrenome",$Cliente->getSobrenome());
             $preparedStatment->bindValue(":Dt_Nascimento",$Cliente->getDt_Nascimento());

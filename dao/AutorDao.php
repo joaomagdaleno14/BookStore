@@ -104,4 +104,33 @@ class AutorDao extends Autor{
             }
         }
     }
+
+    public function update(Autor $Autor) {
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql = "UPDATE Autor SET
+            NomeAutor = :NomeAutor, Descricao = :Descricao, Ator_Img = :Autor_Img WHERE ID = :id";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":id",$Autor->getId());
+            $preparedStatment->bindValue(":NomeAutor",$Autor->getNomeAutor());
+            $preparedStatment->bindValue(":Descricao",$Autor->getDescricao()());
+            $preparedStatment->bindValue(":Autor_Img",$Autor->getAutor_Img());
+            $resultado=$preparedStatment->execute();
+            $connection->commit();
+
+            return $resultado;
+            //var_dump($resultado);
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return FALHA;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+    }
 }

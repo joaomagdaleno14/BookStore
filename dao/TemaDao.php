@@ -110,7 +110,7 @@ class TemaDao extends Tema{
             $sql = "UPDATE Tema SET
             NomeTema = :NomeTema WHERE ID = :id";
             $preparedStatment = $connection->prepare($sql);
-            $preparedStatment->bindValue(":id",$Tema->getid());
+            $preparedStatment->bindValue(":id",$Tema->getId());
             $preparedStatment->bindValue(":NomeTema",$Tema->getNomeTema());
             $resultado=$preparedStatment->execute();
             $connection->commit();

@@ -111,7 +111,7 @@ class EditoraDao extends Editora{
             $sql = "UPDATE Editora SET
             NomeEditora = :NomeEditora WHERE ID = :id";
             $preparedStatment = $connection->prepare($sql);
-            $preparedStatment->bindValue(":id",$Editora->getid());
+            $preparedStatment->bindValue(":id",$Editora->getId());
             $preparedStatment->bindValue(":NomeEditora",$Editora->getNomeEditora());
             $preparedStatment->bindValue(":Editora_Img",$Editora->getEditora_Img());
             $resultado=$preparedStatment->execute();
