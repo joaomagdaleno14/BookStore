@@ -1,100 +1,33 @@
-$(document).ready(function(){
 
-    var DIRPAGE="http://"+document.location.hostname+"/";
-    
-    $('#FormSelect').on('submit',function(event){
-        event.preventDefault();
-        var Dados=$(this).serialize();
+// when form is submit
+$('#FormCadastro').submit(function() {
+    // we stoped it
+    event.preventDefault();
 
-        $.ajax({
-            url: DIRPAGE+'cadastro/seleciona',
-            method='post',
-            dataType:'html',
-            data: Dados,
-            success:function(Dados){
-                $('.Resultado').html(Dados);
-            }
-        });
-
-        $(document).on('click','.ImageEdit',function(){
-            var ImgRel=$(this).attr('rel');
-            
-            $.ajax({
-                url: DIRPAGE+'cadastro/puxaDB/'+ImgRel,
-                method:'post',
-                dataType:'html',
-                data:{'ID':ImgRel},
-                success:function(data){
-                    $('.ResultadoFormulario').html(data);
-                }
-            });
-        });
-    });
-
-    $("#FormAvaliacoes").on('submit',function(event){
-        event.preventDefault();
-        var Dados=$(this).serialize();
-    
-        $.ajax({
-            url: 'controller/ControllerAvaliacao.php',
-            method: 'post',
-            dataType: 'html',
-            data: Dados,
-            success: function(Dados){
-                $('.Resultado').show().html(Dados);
-            }
-        })
-    
-    });
-
-    $('.Deletar').on('click',function(envent){
-        event.preventDefault();
-    
-        var Link=$(this).attr('href');
-        if (confirm("Deseja realmente deletar esse dado?")) {
-            event.preventDefault();
-            var Dados=$(this).serialize();
-        
-            $.ajax({
-                url: 'controller/ControllerDelete-adm.php',
-                method: 'post',
-                dataType: 'html',
-                data: Dados,
-                success: function(Dados){
-                    $('.Resultado').show().html(Dados);
-                }
-            })
-        }else{
-            return false;
-        }
-        
-    });
-
-    $("#FormCadastro").on('submit',function(event){
-        event.preventDefault();
-        var Dados=$(this).serialize();
-    
-        $.ajax({
-            url: 'controller/ControllerCadastro-adm.php',
-            method: 'post',
-            dataType: 'html',
-            data: Dados,
-            success: function(Dados){
-                $('.Resultado').show().html(Dados);
-            }
-        })
-    
-    });
-
-});
-
-
-
-(function getCaptcha(){
+    var NomeCliente = $('#NomeCliente').val();
+    var Sobrenome = $('#Sobrenome').val();
+    var CPF = $('#CPF').val();
+    var Dt_Nascimento = $('#Dt_Nascimento').val();
+    var Telefone = $('#Telefone').val();
+    var Email = $('#Email').val();
+    var Senha = $('#Senha').val();
+    var SenhaConf = $('#SenhaConf').val();
+    // needs for recaptacha ready
     grecaptcha.ready(function() {
-        grecaptcha.execute('6Le6J60UAAAAABJbF9W8ZEyPvBYutA6kFR6KrZmh', {action: 'homepage'}).then(function(token) {
-           const gRecaptchaResponse=document.querySelector("#g-recaptcha-response").value=token;
-        });
+        // do request for recaptcha token
+        console.log(grecaptcha);
+        // response is promise with passed token
+        grecaptcha.execute('6LfrbK8UAAAAALXauyoYZaGSzSDYMfXKlVzcZatC', {action: 'login'}).then(function(token) {
+            // add token to form
+            $('#FormCadastro').prepend('<input type="hidden" name="g-recaptcha-response" value="' + token + '">');
+                $.post("../controllers/ControllerCadastro.php",{NomeCliente: NomeCliente, Sobrenome:Sobrenome, CPF: CPF, Dt_Nascimento: Dt_Nascimento, Telefone: Telefone, Email: Email, Senha: Senha, SenhaConf: SenhaConf, token: token}, function(result) {
+                        console.log(result);
+                        if(result.success) {
+                                alert('Thank you for the cadastro')
+                        } else {
+                                alert('You és a bot! Get the F@$%K out of here.')
+                        }
+                });
+        });;
     });
-}
-());
+});

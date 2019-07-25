@@ -24,7 +24,3 @@
     </div>
 </form>
 <?php include("Footer.php");?>
-
-
-
-
