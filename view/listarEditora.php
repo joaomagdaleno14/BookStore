@@ -24,7 +24,7 @@
 
             <td>
                 <a href="<?php echo "editarEditora.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>
-                <a class="Deletar" href="<?php echo "Controllers/ControllerDeleteEditora.php?id={$row['ID']}"; ?>"><img src="../public/img/delete.png" alt="Deletar"></a>
+                <a class="Deletar" href="<?php echo "../controllers/ControllerEditoraDelete.php?id={$row['ID']}"; ?>"><img src="../public/img/delete.png" alt="Deletar"></a>
             </td>
 
 

@@ -133,4 +133,30 @@ class AutorDao extends Autor{
             }
         }
     }
+
+    public function delete(Autor $Autor) {
+        try {
+            $connection = new PDO('mysql:host=127.0.0.1;dbname=bookstore;charset=utf8', 'root', '');
+            $connection->beginTransaction();
+            $sql = "DELETE FROM Autor WHERE ID = :ID";
+            $preparedStatment = $connection->prepare($sql);
+            $preparedStatment->bindValue(":ID",$Autor->getId());
+            $resultado=$preparedStatment->execute();
+            $connection->commit();
+            
+            return $resultado;
+        } catch (PDOException $exc) {
+            if ((isset($connection)) && ($connection->inTransaction())) {
+                $connection->rollBack();
+            }
+            echo $exc->getMessage();
+            return FALHA;
+        } finally {
+            if (isset($connection)) {
+                unset($connection);
+            }
+        }
+
+    }
+    
 }

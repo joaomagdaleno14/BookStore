@@ -1,14 +1,14 @@
 <?
-include_once '../dao/ClienteDao.php';
+include_once '../dao/TemaDao.php';
     include_once '../common/respostas.php';
     if (isset($_GET['id'])){                        
-        $Cliente = new ClienteDao();
-        $Cliente = $_GET['id'];
-        $resultado = $obj->delete($Cliente);
+        $Tema = new TemaDao();
+        $Tema = $_GET['id'];
+        $resultado = $Tema->delete($Tema);
         if ($resultado == SUCESSO){
             echo "Não foi eliminado";
         } else {
-            $resultado=$Cliente->delete($_GET['id']);
+            $resultado=$Tema->delete($_GET['id']);
             if($resultado){
                 echo "eliminado!";
             }

@@ -12,7 +12,7 @@
 <body>
 
     <header>
-        <nav> 
+        <nav id="index"> 
             <a class="login" href="view/login.php">Login</a>
             <a class="cliente" href="view/cadastro.php">Cadastro Clientes</a>
             <a class="editora" href="view/cadastroeditora.php">Cadastro Editora</a>

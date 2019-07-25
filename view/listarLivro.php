@@ -34,7 +34,7 @@
 
             <td>
                 <a href="<?php echo "editarLivro.php?id=".$row['ID'].";"?>"><img src="../public/img/edit.png" alt="Editar"></a>
-                <a class="Deletar" href="<?php echo "Controllers/ControllerDeleteLivro.php?id={$row['ID']}"; ?>"><img src="../public/img/delete.png" alt="Deletar"></a>
+                <a class="Deletar" href="<?php echo "../controllers/ControllerLivroDelete.php?id={$row['ID']}"; ?>"><img src="../public/img/delete.png" alt="Deletar"></a>
             </td>
 
 
