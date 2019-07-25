@@ -1,0 +1,5 @@
+O unico que eu consegui fazer nesses dias: 
+-Esta editando tudo;
+-Tentei validar/verfiicar o hash da senha se é igual ao que esta no banco (não deu);
+-Tentei eliminar os dados do banco (não deu); 
+-Tentei dar uma cara nova pro index.php (não deu);
