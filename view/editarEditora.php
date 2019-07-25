@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 }
 ?>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerEditoraEditar.php';?>" method="post">
-    <div class="cadastroW">
+    <div class="editora">
 
         <h1>Cadastrar Editora</h1>
         <div class="floatL">

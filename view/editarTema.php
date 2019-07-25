@@ -11,7 +11,7 @@ if(isset($_GET['id'])){
 }
 ?>
 <form name="FormCadastro" id="FormCadastro" action="<?php echo '../controllers/ControllerTemaEditar.php';?>" method="post">
-    <div class="cadastroW">
+    <div class="tema">
 
     <h1>Cadastrar Tema</h1>
     <div class="floatL">
