@@ -17,7 +17,7 @@ $('#FormCadastro').submit(function() {
         // do request for recaptcha token
         console.log(grecaptcha);
         // response is promise with passed token
-        grecaptcha.execute('6LfrbK8UAAAAALXauyoYZaGSzSDYMfXKlVzcZatC', {action: 'login'}).then(function(token) {
+        grecaptcha.execute('SG.6LfrbK8UAAAAALXauyoYZaGSzSDYMfXKlVzcZatC', {action: 'login'}).then(function(token) {
             // add token to form
             $('#FormCadastro').prepend('<input type="hidden" name="g-recaptcha-response" value="' + token + '">');
                 $.post("../controllers/ControllerCadastro.php",{NomeCliente: NomeCliente, Sobrenome:Sobrenome, CPF: CPF, Dt_Nascimento: Dt_Nascimento, Telefone: Telefone, Email: Email, Senha: Senha, SenhaConf: SenhaConf, token: token}, function(result) {

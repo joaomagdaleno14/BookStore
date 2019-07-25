@@ -67,13 +67,12 @@
         $captcha;
         $captcha = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
 
-        var_dump($captcha);
-
         if(!$captcha){
           echo '<h2>Please check the the captcha form.</h2>';
           exit;
         }
-        $secretKey = "6LfrbK8UAAAAAGHEsY0Epz2DF3q1HSpbUmlpGlKA";
+
+        $secretKey = "SG.6LfrbK8UAAAAAGHEsY0Epz2DF3q1HSpbUmlpGlKA";
         $ip = $_SERVER['REMOTE_ADDR'];
       
         // post request to server
@@ -96,35 +95,6 @@
         } else {
           echo json_encode(array('success' => 'false'));
         }
-
-
-
-
-        // if(isset($_POST)){
-            //     $gRecaptchaResponse=$_POST['g-recaptcha-response'];
-            //     $Captcha = new Cliente();
-            //     $Captcha->setReCaptcha($gRecaptchaResponse);
-            //     $resultado5 = $cBl->validateCaptcha($Captcha);
-            //     var_dump(validateCaptcha($Captcha));
-            // }
-            
-
-        // if ($resultad6 == SUCESSO){
-        //     echo "ok cadastro inserido com sucesso <br>";
-        // } else {
-        //     echo "nao foi inserido";    
-        // }
-        // if ($resultado2 == SUCESSO) {
-        //     echo "ok Token inserido com sucesso";
-        // } else {
-        //     echo "nao foi inserido";
-        // }
-        // if ($resultado3 == SUCESSO) {
-        //     echo "ok Email Validado com sucesso";
-        // } else {
-        //     echo "nao foi validado";
-        // }
-        
         
         
     }?>
