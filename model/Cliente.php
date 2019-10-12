@@ -12,8 +12,6 @@ class Cliente {
     private $Senha;
     private $SenhaConf;
     private $SenhaHash;
-    private $Token;
-    private $ReCaptcha; 
 
 
     public function getId() {
@@ -45,12 +43,6 @@ class Cliente {
     }
     public function getSenhaHash() {
         return $this->SenhaHash;
-    }
-    public function getToken() {
-        return $this->Token;
-    }
-    public function getReCaptcha() {
-        return $this->ReCaptcha;
     }
 
 
@@ -84,12 +76,6 @@ class Cliente {
     }
     public function setSenhaHash($SenhaHash) {
         $this->SenhaHash = $SenhaHash;
-    }
-    public function setToken($Token) {
-        $this->Token = $Token;
-    }
-    public function setReCaptcha($ReCaptcha) {
-        $this->ReCaptcha = $ReCaptcha;
     }
 
 
